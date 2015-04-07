@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E9184661AD48F9A00AFDE44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9184651AD48F9A00AFDE44 /* main.swift */; };
 		4E9184731AD48FC400AFDE44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9184721AD48FC400AFDE44 /* main.swift */; };
+		4E91847A1AD492E300AFDE44 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9184791AD492E300AFDE44 /* Server.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,9 @@
 		4E9184651AD48F9A00AFDE44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4E9184701AD48FC400AFDE44 /* KJMessageTestClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KJMessageTestClient; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9184721AD48FC400AFDE44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4E9184771AD492E300AFDE44 /* KJMessageTestServer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KJMessageTestServer-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E9184781AD492E300AFDE44 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		4E9184791AD492E300AFDE44 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,10 @@
 		4E9184641AD48F9A00AFDE44 /* KJMessageTestServer */ = {
 			isa = PBXGroup;
 			children = (
+				4E9184771AD492E300AFDE44 /* KJMessageTestServer-Bridging-Header.h */,
 				4E9184651AD48F9A00AFDE44 /* main.swift */,
+				4E9184781AD492E300AFDE44 /* Server.h */,
+				4E9184791AD492E300AFDE44 /* Server.m */,
 			);
 			path = KJMessageTestServer;
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E91847A1AD492E300AFDE44 /* Server.m in Sources */,
 				4E9184661AD48F9A00AFDE44 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,14 +269,21 @@
 		4E91846A1AD48F9A00AFDE44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KJMessageTestServer/KJMessageTestServer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4E91846B1AD48F9A00AFDE44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KJMessageTestServer/KJMessageTestServer-Bridging-Header.h";
 			};
 			name = Release;
 		};
