@@ -8,10 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		4E9184661AD48F9A00AFDE44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9184651AD48F9A00AFDE44 /* main.swift */; };
+		4E9184731AD48FC400AFDE44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9184721AD48FC400AFDE44 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		4E9184601AD48F9A00AFDE44 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4E91846E1AD48FC400AFDE44 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,10 +35,19 @@
 /* Begin PBXFileReference section */
 		4E9184621AD48F9A00AFDE44 /* KJMessageTestServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KJMessageTestServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9184651AD48F9A00AFDE44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4E9184701AD48FC400AFDE44 /* KJMessageTestClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KJMessageTestClient; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E9184721AD48FC400AFDE44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4E91845F1AD48F9A00AFDE44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E91846D1AD48FC400AFDE44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				4E9184641AD48F9A00AFDE44 /* KJMessageTestServer */,
+				4E9184711AD48FC400AFDE44 /* KJMessageTestClient */,
 				4E9184631AD48F9A00AFDE44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				4E9184621AD48F9A00AFDE44 /* KJMessageTestServer */,
+				4E9184701AD48FC400AFDE44 /* KJMessageTestClient */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +81,14 @@
 				4E9184651AD48F9A00AFDE44 /* main.swift */,
 			);
 			path = KJMessageTestServer;
+			sourceTree = "<group>";
+		};
+		4E9184711AD48FC400AFDE44 /* KJMessageTestClient */ = {
+			isa = PBXGroup;
+			children = (
+				4E9184721AD48FC400AFDE44 /* main.swift */,
+			);
+			path = KJMessageTestClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +111,23 @@
 			productReference = 4E9184621AD48F9A00AFDE44 /* KJMessageTestServer */;
 			productType = "com.apple.product-type.tool";
 		};
+		4E91846F1AD48FC400AFDE44 /* KJMessageTestClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E9184741AD48FC400AFDE44 /* Build configuration list for PBXNativeTarget "KJMessageTestClient" */;
+			buildPhases = (
+				4E91846C1AD48FC400AFDE44 /* Sources */,
+				4E91846D1AD48FC400AFDE44 /* Frameworks */,
+				4E91846E1AD48FC400AFDE44 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KJMessageTestClient;
+			productName = KJMessageTestClient;
+			productReference = 4E9184701AD48FC400AFDE44 /* KJMessageTestClient */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -92,6 +138,9 @@
 				ORGANIZATIONNAME = "Kristopher Johnson";
 				TargetAttributes = {
 					4E9184611AD48F9A00AFDE44 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					4E91846F1AD48FC400AFDE44 = {
 						CreatedOnToolsVersion = 6.2;
 					};
 				};
@@ -109,6 +158,7 @@
 			projectRoot = "";
 			targets = (
 				4E9184611AD48F9A00AFDE44 /* KJMessageTestServer */,
+				4E91846F1AD48FC400AFDE44 /* KJMessageTestClient */,
 			);
 		};
 /* End PBXProject section */
@@ -119,6 +169,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E9184661AD48F9A00AFDE44 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E91846C1AD48FC400AFDE44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E9184731AD48FC400AFDE44 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +272,24 @@
 			};
 			name = Release;
 		};
+		4E9184751AD48FC400AFDE44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4E9184761AD48FC400AFDE44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -231,6 +307,14 @@
 			buildConfigurations = (
 				4E91846A1AD48F9A00AFDE44 /* Debug */,
 				4E91846B1AD48F9A00AFDE44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4E9184741AD48FC400AFDE44 /* Build configuration list for PBXNativeTarget "KJMessageTestClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E9184751AD48FC400AFDE44 /* Debug */,
+				4E9184761AD48FC400AFDE44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
