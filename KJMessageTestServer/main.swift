@@ -10,7 +10,7 @@ import Foundation
 
 let messagePortName = "net.kristopherjohnson.KJMessageTestServer"
 
-var server = Server()
-server.addSourceForMessagePortWithName(messagePortName, toRunLoop: CFRunLoopGetCurrent())
+let server = Server()
+server.addSourceForNewLocalMessagePortWithName(messagePortName, toRunLoop: CFRunLoopGetCurrent())
 
 CFRunLoopRun()

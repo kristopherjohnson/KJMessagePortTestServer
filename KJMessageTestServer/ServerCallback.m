@@ -10,7 +10,7 @@
 
 #import "KJMessageTestServer-Swift.h"
 
-CFDataRef ServerCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef data, void *info) {
+static CFDataRef ServerCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef data, void *info) {
     Server *server = (__bridge Server *)info;
     NSData *resultData = [server handleMessageWithID:msgid data:(__bridge NSData *)(data)];
     if (resultData != NULL) {

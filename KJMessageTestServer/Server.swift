@@ -8,14 +8,22 @@
 
 import Cocoa
 
+/// Implementation of a server that uses a message port
+///
+/// This class is derived from NSObject so that the Objective-C-based
+/// callback function can use it.
 class Server: NSObject {
 
-    func addSourceForMessagePortWithName(name: String, toRunLoop runLoop: CFRunLoop!) {
+    /// Create the local message port then register an input source for it
+    func addSourceForNewLocalMessagePortWithName(name: String, toRunLoop runLoop: CFRunLoop!) {
         if let messagePort = createMessagePortWithName(name) {
             addSourceForMessagePort(messagePort, toRunLoop: runLoop)
         }
     }
 
+    /// Create a local message port with the specified name
+    ///
+    /// Incoming messages will be routed to this object's handleMessageWithID(,data:) method.
     func createMessagePortWithName(name: String) -> CFMessagePort? {
         var messagePortContext = CFMessagePortContext(
             version: 0,
@@ -34,13 +42,15 @@ class Server: NSObject {
             &shouldFreeInfo)
     }
 
+    /// Create an input source for the specified message port and add it to the specified run loop
     func addSourceForMessagePort(messagePort: CFMessagePort, toRunLoop runLoop: CFRunLoop) {
         let runLoopSource = CFMessagePortCreateRunLoopSource(nil, messagePort, 0)
         CFRunLoopAddSource(runLoop, runLoopSource, kCFRunLoopCommonModes)
     }
 
+    /// Called by the message port callback function
     func handleMessageWithID(msgid: Int32, data: NSData) -> NSData? {
-        NSLog("Server: received message in Swift")
+        NSLog("Server: received message with ID \(msgid), length \(data.length)")
         return nil
     }
 }
