@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E50159F1AD617BA00615DF6 /* ServerCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E50159E1AD617BA00615DF6 /* ServerCallback.m */; };
+		4E5015A11AD6186C00615DF6 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5015A01AD6186C00615DF6 /* Server.swift */; };
 		4E9184661AD48F9A00AFDE44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9184651AD48F9A00AFDE44 /* main.swift */; };
 		4E9184731AD48FC400AFDE44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9184721AD48FC400AFDE44 /* main.swift */; };
-		4E91847A1AD492E300AFDE44 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9184791AD492E300AFDE44 /* Server.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,13 +35,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E50159D1AD617BA00615DF6 /* ServerCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCallback.h; sourceTree = "<group>"; };
+		4E50159E1AD617BA00615DF6 /* ServerCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerCallback.m; sourceTree = "<group>"; };
+		4E5015A01AD6186C00615DF6 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		4E9184621AD48F9A00AFDE44 /* KJMessageTestServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KJMessageTestServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9184651AD48F9A00AFDE44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4E9184701AD48FC400AFDE44 /* KJMessageTestClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KJMessageTestClient; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9184721AD48FC400AFDE44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4E9184771AD492E300AFDE44 /* KJMessageTestServer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KJMessageTestServer-Bridging-Header.h"; sourceTree = "<group>"; };
-		4E9184781AD492E300AFDE44 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
-		4E9184791AD492E300AFDE44 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +86,9 @@
 			children = (
 				4E9184771AD492E300AFDE44 /* KJMessageTestServer-Bridging-Header.h */,
 				4E9184651AD48F9A00AFDE44 /* main.swift */,
-				4E9184781AD492E300AFDE44 /* Server.h */,
-				4E9184791AD492E300AFDE44 /* Server.m */,
+				4E50159D1AD617BA00615DF6 /* ServerCallback.h */,
+				4E50159E1AD617BA00615DF6 /* ServerCallback.m */,
+				4E5015A01AD6186C00615DF6 /* Server.swift */,
 			);
 			path = KJMessageTestServer;
 			sourceTree = "<group>";
@@ -175,7 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E91847A1AD492E300AFDE44 /* Server.m in Sources */,
+				4E50159F1AD617BA00615DF6 /* ServerCallback.m in Sources */,
+				4E5015A11AD6186C00615DF6 /* Server.swift in Sources */,
 				4E9184661AD48F9A00AFDE44 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +328,7 @@
 				4E91846B1AD48F9A00AFDE44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E9184741AD48FC400AFDE44 /* Build configuration list for PBXNativeTarget "KJMessageTestClient" */ = {
 			isa = XCConfigurationList;
@@ -332,6 +337,7 @@
 				4E9184761AD48FC400AFDE44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

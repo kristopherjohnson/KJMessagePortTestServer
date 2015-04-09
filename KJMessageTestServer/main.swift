@@ -14,11 +14,11 @@ let messagePortName = "net.kristopherjohnson.KJMessageTestServer"
 var server = Server()
 var messagePortContext = CFMessagePortContext(
     version: 0,
-    info: server.info(),
+    info: GetServerCallbackInfo(server),
     retain: nil,
     release: nil,
     copyDescription: nil)
-var messagePortCallback = Server.callback()
+var messagePortCallback = GetServerCallback()
 var shouldFreeInfo: Boolean = 0
 
 // Create message port
