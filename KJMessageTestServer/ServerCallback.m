@@ -12,7 +12,7 @@
 
 CFDataRef ServerCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef data, void *info) {
     Server *server = (__bridge Server *)info;
-    NSData *resultData = [server handleMessageWithId:msgid data:(__bridge NSData *)(data)];
+    NSData *resultData = [server handleMessageWithID:msgid data:(__bridge NSData *)(data)];
     if (resultData != NULL) {
         CFDataRef cfdata = CFDataCreate(nil, resultData.bytes, resultData.length);
         return cfdata;

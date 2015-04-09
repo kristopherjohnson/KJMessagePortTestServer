@@ -86,9 +86,9 @@
 			children = (
 				4E9184771AD492E300AFDE44 /* KJMessageTestServer-Bridging-Header.h */,
 				4E9184651AD48F9A00AFDE44 /* main.swift */,
+				4E5015A01AD6186C00615DF6 /* Server.swift */,
 				4E50159D1AD617BA00615DF6 /* ServerCallback.h */,
 				4E50159E1AD617BA00615DF6 /* ServerCallback.m */,
-				4E5015A01AD6186C00615DF6 /* Server.swift */,
 			);
 			path = KJMessageTestServer;
 			sourceTree = "<group>";
