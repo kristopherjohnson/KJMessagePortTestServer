@@ -7,14 +7,14 @@
 //
 
 #import "ServerCallback.h"
-
 #import "KJMessageTestServer-Swift.h"
 
+/// Calls Server.handleMessageWithID(,data:)
 static CFDataRef ServerCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef data, void *info) {
     Server *server = (__bridge Server *)info;
-    NSData *resultData = [server handleMessageWithID:msgid data:(__bridge NSData *)(data)];
-    if (resultData != NULL) {
-        CFDataRef cfdata = CFDataCreate(nil, resultData.bytes, resultData.length);
+    NSData *responseData = [server handleMessageWithID:msgid data:(__bridge NSData *)(data)];
+    if (responseData != NULL) {
+        CFDataRef cfdata = CFDataCreate(nil, responseData.bytes, responseData.length);
         return cfdata;
     }
     else {

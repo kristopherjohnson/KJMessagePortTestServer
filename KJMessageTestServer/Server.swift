@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Kristopher Johnson. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 /// Implementation of a server that uses a message port
 ///
@@ -25,27 +25,27 @@ class Server: NSObject {
     ///
     /// Incoming messages will be routed to this object's handleMessageWithID(,data:) method.
     func createMessagePortWithName(name: String) -> CFMessagePort? {
-        var messagePortContext = CFMessagePortContext(
+        let callback = GetServerCallback()
+        var context = CFMessagePortContext(
             version: 0,
-            info: GetServerCallbackInfo(server),
+            info: GetServerCallbackInfo(self),
             retain: nil,
             release: nil,
             copyDescription: nil)
-        var messagePortCallback = GetServerCallback()
         var shouldFreeInfo: Boolean = 0
 
         return CFMessagePortCreateLocal(
             nil,
             name,
-            messagePortCallback,
-            &messagePortContext,
+            callback,
+            &context,
             &shouldFreeInfo)
     }
 
     /// Create an input source for the specified message port and add it to the specified run loop
     func addSourceForMessagePort(messagePort: CFMessagePort, toRunLoop runLoop: CFRunLoop) {
-        let runLoopSource = CFMessagePortCreateRunLoopSource(nil, messagePort, 0)
-        CFRunLoopAddSource(runLoop, runLoopSource, kCFRunLoopCommonModes)
+        let source = CFMessagePortCreateRunLoopSource(nil, messagePort, 0)
+        CFRunLoopAddSource(runLoop, source, kCFRunLoopCommonModes)
     }
 
     /// Called by the message port callback function

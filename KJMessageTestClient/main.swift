@@ -28,5 +28,5 @@ if let serverPort = CFMessagePortCreateRemote(nil, messagePortName) {
     }
 }
 else {
-    println("Client: Unable to open server port")
+    NSLog("Client: Unable to open server port")
 }
