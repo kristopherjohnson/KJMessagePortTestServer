@@ -10,7 +10,7 @@ import Foundation
 
 let messagePortName = "net.kristopherjohnson.KJMessageTestServer"
 
-if let serverPort = CFMessagePortCreateRemote(nil, messagePortName) {
+if let serverPort = CFMessagePortCreateRemote(nil, messagePortName as CFString) {
     let bytes: [UInt8] = [8, 7, 6, 5, 4, 3, 2, 1]
     let data = CFDataCreate(nil, bytes, bytes.count)
     let sendResult = CFMessagePortSendRequest(serverPort,

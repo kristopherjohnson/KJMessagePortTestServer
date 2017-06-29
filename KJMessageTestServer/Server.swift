@@ -15,16 +15,16 @@ import Foundation
 class Server: NSObject {
 
     /// Create the local message port then register an input source for it
-    func addSourceForNewLocalMessagePortWithName(name: String, toRunLoop runLoop: CFRunLoop!) {
-        if let messagePort = createMessagePortWithName(name) {
-            addSourceForMessagePort(messagePort, toRunLoop: runLoop)
+    func addSourceForNewLocalMessagePort(name: String, toRunLoop runLoop: CFRunLoop!) {
+        if let messagePort = createMessagePort(name: name) {
+            addSource(messagePort: messagePort, toRunLoop: runLoop)
         }
     }
 
     /// Create a local message port with the specified name
     ///
     /// Incoming messages will be routed to this object's handleMessageWithID(,data:) method.
-    func createMessagePortWithName(name: String) -> CFMessagePort? {
+    func createMessagePort(name: String) -> CFMessagePort? {
         let callback = GetServerCallback()
         var context = CFMessagePortContext(
             version: 0,
@@ -32,25 +32,25 @@ class Server: NSObject {
             retain: nil,
             release: nil,
             copyDescription: nil)
-        var shouldFreeInfo: Boolean = 0
+        var shouldFreeInfo: DarwinBoolean = false
 
         return CFMessagePortCreateLocal(
             nil,
-            name,
+            name as CFString,
             callback,
             &context,
             &shouldFreeInfo)
     }
 
     /// Create an input source for the specified message port and add it to the specified run loop
-    func addSourceForMessagePort(messagePort: CFMessagePort, toRunLoop runLoop: CFRunLoop) {
+    func addSource(messagePort: CFMessagePort, toRunLoop runLoop: CFRunLoop) {
         let source = CFMessagePortCreateRunLoopSource(nil, messagePort, 0)
-        CFRunLoopAddSource(runLoop, source, kCFRunLoopCommonModes)
+        CFRunLoopAddSource(runLoop, source, CFRunLoopMode.commonModes)
     }
 
     /// Called by the message port callback function
-    func handleMessageWithID(msgid: Int32, data: NSData) -> NSData? {
-        NSLog("Server: received message with ID \(msgid), length \(data.length)")
+    func handleMessageWithID(_ msgid: Int32, data: Data) -> Data? {
+        NSLog("Server: received message with ID \(msgid), length \(data.count)")
         return nil
     }
 }
